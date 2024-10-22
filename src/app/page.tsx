@@ -1,4 +1,5 @@
 import NavBar from "@/components/common/NavBar";
+import ContactSection from "@/components/sections/ContactSection";
 import FooterSection from "@/components/sections/FooterSection";
 import HeroSection from "@/components/sections/HeroSection";
 import NewsletterSection from "@/components/sections/NewsletterSection";
@@ -10,15 +11,13 @@ import VideoPlayerSection from "@/components/sections/VideoPlayerSection";
 export default function Home() {
   return (
     <main>
-      <NavBar />
-      <div className="mt-24 md:32 lg:mt-8 px-4  md:px-[9rem]">
+      <div className="mt-24 md:32 lg:mt-2 px-4  md:px-[4rem]">
         <HeroSection />
         <ServiceSection />
-        <VideoPlayerSection />
-        <TestimonialSection />
-        <TeamSection />
+        {/* <TestimonialSection />
+        <TeamSection /> */}
         <NewsletterSection />
-        <FooterSection />
+        <ContactSection />
       </div>
     </main>
   );

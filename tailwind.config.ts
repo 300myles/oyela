@@ -33,11 +33,12 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
-        primary: "#F60",
+        primary: "#9B3a02",
         darkBlue: "#0B1B35",
         customGray: "#8A898E",
         lightBlue: "#1E0E62",
-        customLightGray: "#15143966"
+        customLightGray: "#15143966",
+        yellow: "#F60",
       },
       fontSize: {
         normal: "1.125rem"
