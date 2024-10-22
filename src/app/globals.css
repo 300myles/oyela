@@ -44,3 +44,11 @@
 .unique-link:hover::after {
   width: 100%;
 }
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+* {
+  font-family: sans-serif !important ;
+}
