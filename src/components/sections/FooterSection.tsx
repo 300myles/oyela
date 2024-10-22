@@ -1,5 +1,6 @@
 import React from "react";
 import { Separator } from "../ui/separator";
+import Link from "next/link";
 
 function FooterSection() {
   return (
@@ -18,10 +19,10 @@ function FooterSection() {
           Illuminating your world...
         </div>
         <div className="flex gap-4">
-          <p className="text-lightBlue hover:text-primary text-[1rem]">How it Works</p>
-          <p className="text-lightBlue hover:text-primary text-[1rem]">Pricing</p>
-          <p className="text-lightBlue hover:text-primary text-[1rem]">About</p>
-          <p className="text-lightBlue hover:text-primary text-[1rem]">Get Started</p>
+          <Link href="#" className="text-lightBlue hover:text-primary text-[1rem]">How it Works</Link>
+          <Link href="/pricing" className="text-lightBlue hover:text-primary text-[1rem]">Pricing</Link>
+          <Link href="#" className="text-lightBlue hover:text-primary text-[1rem]">About</Link>
+          <Link href="/our-app" className="text-lightBlue hover:text-primary text-[1rem]">Get Started</Link>
         </div>
       </div>
       <Separator />

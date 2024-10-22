@@ -89,7 +89,7 @@ const OurApp: React.FC = () => {
                 ))}
               </ul>
 
-              <button className="px-3 py-3 mt-12 mb-4 rounded-lg w-full font-semibold text-sm md:text-xl duration-150 text-white bg-primary hover:bg-indigo-500 active:bg-indigo-700">
+              <button className="px-3 py-3 mt-12 mb-4 rounded-lg w-full font-semibold text-sm md:text-xl border-2 duration-150 text-white bg-primary hover:bg-white hover:border-primary hover:text-primary">
                 Download
               </button>
             </div>

@@ -37,12 +37,12 @@ const Navbar: React.FC = () => {
             </p>
 
             <div className="items-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
-              <a
-                href="#"
-                className="block py-2 px-4 text-center text-white font-medium bg-primary duration-150 hover:opacity-[0.8] active:opacity-[0.5] rounded-lg shadow-lg hover:shadow-none"
+              <Link
+                href="/our-app"
+                className="block py-2 px-4 text-center text-white font-medium bg-primary border-2 hover:bg-white hover:border-primary hover:text-primary active:opacity-[0.5] rounded-lg shadow-lg hover:shadow-none"
               >
                 {"Let's get started"}
-              </a>
+              </Link>
               <Link
                 href="/pricing"
                 className="flex items-center justify-center gap-x-2 py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex"

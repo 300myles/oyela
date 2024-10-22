@@ -91,7 +91,7 @@ const PricingSection: React.FC = () => {
                   <span className="text-xl text-gray-600 font-normal">/mo6</span>
                 </div>
                 <p>{item.desc}</p>
-                <button className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-primary hover:bg-indigo-500 active:bg-indigo-700">
+                <button className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white border-2 bg-primary hover:bg-white hover:border-primary hover:text-primary">
                   Get Started
                 </button>
               </div>

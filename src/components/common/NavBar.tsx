@@ -93,33 +93,38 @@ function NavBar() {
           </div>
         </div>
         {menu ? (
-          <div className="h-screen flex select-none bg-[#000000a4] animate-in slide-in-from-right">
+          <div className="h-screen flex select-none animate-in slide-in-from-right">
             <div onClick={() => {}} className="w-1/2 h-full border flex flex-col gap-8 px-3 py-4 bg-white">
               <Link
                 href="/"
+                onClick={() => setMenu(false)}
                 className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
               >
                 Home
               </Link>
               <Link
                 href="#"
+                onClick={() => setMenu(false)}
                 className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
               >
                 About Us
               </Link>
               <Link
                 href="/our-app"
+                onClick={() => setMenu(false)}
                 className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
               >
                 Our App
               </Link>
               <Link href="/pricing"
+                onClick={() => setMenu(false)}
                 className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
               >
                 Pricing
               </Link>
               <Link
                 href="/contact"
+                onClick={() => setMenu(false)}
                 className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
               >
                 Contacts
@@ -128,7 +133,7 @@ function NavBar() {
               <MainButton text="Download now" classes="shadow-none" />
             </div>
 
-            <div className="w-1/2" onClick={() => setMenu(!menu)}></div>
+            <div className="w-1/2 bg-[#000] opacity-[0.6]" onClick={() => setMenu(!menu)}></div>
           </div>
         ) : (
           <div></div>
