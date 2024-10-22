@@ -1,27 +1,32 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ES5", // This is fine for most modern browsers.
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "allowJs": true, // Allows JavaScript files to be included.
+    "skipLibCheck": true, // Skips type checking of declaration files.
+    "strict": true, // Enables strict type-checking options.
+    "noEmit": true, // Ensures no output files are created, typically for Next.js.
+    "esModuleInterop": true, // Allows default imports from CommonJS modules.
+    "module": "esnext", // For ECMAScript-style module loading.
+    "moduleResolution": "bundler", // Resolve modules using the bundler method (specific for Next.js).
+    "resolveJsonModule": true, // Allows importing JSON files.
+    "isolatedModules": true, // Ensures that each file can be transpiled independently (required for Next.js).
+    "jsx": "preserve", // Keeps JSX as-is for Next.js to handle.
+    "incremental": true, // Speeds up subsequent builds by only building what's necessary.
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Enables Next.js-specific TypeScript features.
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"] // Sets up absolute imports for files in the `src` directory.
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist"] // Also excludes the "dist" directory, which is commonly used for builds.
 }

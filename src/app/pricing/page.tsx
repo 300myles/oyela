@@ -88,7 +88,7 @@ const PricingSection: React.FC = () => {
                 <span className="text-primary text-2xl font-extrabold font-medium">{item.name}</span>
                 <div className="text-gray-800 text-3xl font-semibold">
                   ${item.price}{" "}
-                  <span className="text-xl text-gray-600 font-normal">/mo</span>
+                  <span className="text-xl text-gray-600 font-normal">/mo6</span>
                 </div>
                 <p>{item.desc}</p>
                 <button className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-primary hover:bg-indigo-500 active:bg-indigo-700">

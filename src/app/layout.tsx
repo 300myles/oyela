@@ -3,13 +3,14 @@ import './globals.css'
 import localFont from 'next/font/local'
 import NavBar from '@/components/common/NavBar';
 import FooterSection from '@/components/sections/FooterSection';
+import React from 'react';
 
 
 export const metadata: Metadata = {
   title: 'Oyela',
   description: 'Discover emotional support and relationship advice with our therapy app. Connect with AI counselors and professionals worldwide for personalized guidance and personality assessments.',
   icons: {
-    icon: "/favicon.ico", // Use leading slash for path
+    icon: "/logo.png", // Use leading slash for path
   },
 };
 
