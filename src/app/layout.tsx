@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Oyela',
   description: 'Discover emotional support and relationship advice with our therapy app. Connect with AI counselors and professionals worldwide for personalized guidance and personality assessments.',
   icons: {
-    icon: "/logo.png", // Use leading slash for path
+    icon: "/favicon.ico", // Use leading slash for path
   },
 };
 
