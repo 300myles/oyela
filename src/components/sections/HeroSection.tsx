@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
 
             <div className="items-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
               <Link
-                href="/our-app"
+                href="/user-app"
                 className="block py-2 px-4 text-center text-white font-medium bg-primary border-2 hover:bg-white hover:border-primary hover:text-primary active:opacity-[0.5] rounded-lg shadow-lg hover:shadow-none"
               >
                 {"Let's get started"}

@@ -22,7 +22,7 @@ function FooterSection() {
           <Link href="#" className="text-lightBlue hover:text-primary text-[1rem]">How it Works</Link>
           <Link href="/pricing" className="text-lightBlue hover:text-primary text-[1rem]">Pricing</Link>
           <Link href="#" className="text-lightBlue hover:text-primary text-[1rem]">About</Link>
-          <Link href="/our-app" className="text-lightBlue hover:text-primary text-[1rem]">Get Started</Link>
+          <Link href="/user-app" className="text-lightBlue hover:text-primary text-[1rem]">Get Started</Link>
         </div>
       </div>
       <Separator />

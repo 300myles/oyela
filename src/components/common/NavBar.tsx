@@ -37,7 +37,7 @@ function NavBar() {
               >
                 About Us
               </p>
-              <Link href="/our-app"
+              <Link href="/user-app"
                 className={`hover:text-primary cursor-pointer flex items-center gap-2 unique-link font-[500] text-gray`}
               >
                 Our App
@@ -110,7 +110,7 @@ function NavBar() {
                 About Us
               </Link>
               <Link
-                href="/our-app"
+                href="/user-app"
                 onClick={() => setMenu(false)}
                 className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
               >

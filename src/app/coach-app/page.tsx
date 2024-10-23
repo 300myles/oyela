@@ -1,5 +1,6 @@
-"use server";
+"use client";
 
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface Feature {
@@ -15,8 +16,10 @@ interface Plan {
   features: Feature[];
 }
 
-const OurApp: React.FC = () => {
 
+
+const OurApp: React.FC = () => {
+  const router = useRouter();
   const plans: Plan[] = [
     {
       name: "Individual",
@@ -53,14 +56,12 @@ const OurApp: React.FC = () => {
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="relative max-w-xl mx-auto sm:text-center">
           <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-            Unlock Emotional Wellness with{" "}
-            <span className="text-primary">O</span>yela
+            Unlock New Opportunities with{" "}
+            <span className="text-primary">O</span>yela Coach App
           </h3>
           <div className="mt-3 max-w-xl">
             <p>
-              Start your journey toward emotional well-being and better
-              relationships today. Find Oyela on the App Store and Google Play
-              Store!
+            Take the first step toward expanding your practice and helping more clients achieve their wellness goals. Download Oyela Coach today and unlock new opportunities in counseling.
             </p>
           </div>
         </div>
@@ -71,12 +72,20 @@ const OurApp: React.FC = () => {
               className="relative flex flex-1 md:min-w-[20rem] md:max-w-[24rem] shadow-xl items-center flex-col rounded-xl border mt-6 border-primary sm:mt-0 pb-8 px-12"
             >
               <div className="p-8 flex flex-col items-center">
-                <img src={item.icon} className="md:scale-150" alt={`${item.name} icon`} />
+                <img
+                  src={item.icon}
+                  className="md:scale-150"
+                  alt={`${item.name} icon`}
+                />
                 <p className="mt-4">{item.desc}</p>
                 <div className="flex items-center mt-2 space-x-2">
                   <span>Ratings</span>
                   <span>3.5/5.0</span>
-                  <img src="/images/star.png" className="inline w-4 h-4" alt="ratings star" />
+                  <img
+                    src="/images/star.png"
+                    className="inline w-4 h-4"
+                    alt="ratings star"
+                  />
                 </div>
               </div>
 
@@ -94,6 +103,27 @@ const OurApp: React.FC = () => {
               </button>
             </div>
           ))}
+        </div>
+
+        <div className="w-full flex flex-col items-center gap-[1.56rem] justify-center mt-8 md:mt-[2.75rem]">
+          <h3 className="text-gray-800 mt-12 text-center text-3xl font-semibold sm:text-4xl">
+            Register as a Client
+          </h3>
+          <button onClick={() => router.push("/user-app")} className="px-3 flex items-center gap-3 py-2 mb-4 rounded-lg font-semibold text-sm md:text-xl border-2 duration-150 text-gray-700 bg-white hover:bg-white hover:border-primary hover:text-primary">
+            Continue
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
