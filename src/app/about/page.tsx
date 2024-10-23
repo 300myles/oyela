@@ -46,7 +46,7 @@ const AboutPage: React.FC = () => {
             <p className="text-gray-600 text-center">
               Our AI counselor offers 24/7 support, helping you understand your
               feelings and providing coping strategies when you need them most.
-              It's like having a friend who's always there for you.
+              It{"'"}s like having a friend who{"'"}s always there for you.
             </p>
           </div>
 
