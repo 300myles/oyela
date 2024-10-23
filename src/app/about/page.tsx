@@ -15,7 +15,7 @@ const AboutPage: React.FC = () => {
         </h1>
         <p className="text-lg text-gray-700 text-center mb-12">
           At Oyela, we believe in empowering individuals to manage their
-          emotions and navigate life's challenges with confidence. Our platform
+          emotions and navigate life{"'"}s challenges with confidence. Our platform
           connects users with professional counselors and provides AI-driven
           support tailored to their unique needs.
         </p>
