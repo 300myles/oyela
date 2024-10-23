@@ -13,6 +13,7 @@ interface Plan {
 
 const PricingSection: React.FC = () => {
   const router = useRouter();
+  const [showAll, setShowAll] = useState(false); // State for toggling feature visibility
   const plans: Plan[] = [
     {
       name: "Individual",
@@ -71,7 +72,6 @@ const PricingSection: React.FC = () => {
 
         <div className="w-full flex flex-col flex-wrap md:flex-row gap-[1.56rem] justify-around mt-8 md:mt-[2rem]">
           {plans.map((item, idx) => {
-            const [showAll, setShowAll] = useState(false); // State for toggling feature visibility
             const displayedFeatures = showAll
               ? item.features
               : item.features.slice(0, 3); // Show all or first 3 features
@@ -149,7 +149,14 @@ const PricingSection: React.FC = () => {
                     )}
                   </div>
                   <p>{item.desc}</p>
-                  <button onClick={() => router.push(item.name !== "Coach" ? "/user-app" : "/coach-app")} className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white border-2 bg-primary hover:bg-white hover:border-primary hover:text-primary">
+                  <button
+                    onClick={() =>
+                      router.push(
+                        item.name !== "Coach" ? "/user-app" : "/coach-app"
+                      )
+                    }
+                    className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white border-2 bg-primary hover:bg-white hover:border-primary hover:text-primary"
+                  >
                     Get Started
                   </button>
                 </div>

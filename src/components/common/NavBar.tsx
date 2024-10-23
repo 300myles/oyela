@@ -4,57 +4,58 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import MainButton from "./MainButton";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function NavBar() {
+  const router = useRouter();
   const [menu, setMenu] = useState(false);
-  const toggleMenu = () => {
-    setMenu(!menu);
-  };
+  const toggleMenu = () => setMenu(!menu);
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/user-app", label: "Our App" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/contact", label: "Contacts" },
+  ];
 
   return (
     <>
-      <div className="md:sticky md:top-0 md:shadow-sm  md:shadow-none z-20 ">
+      <div className="md:sticky md:top-0 md:shadow-sm z-20">
         {/* DESKTOP */}
-        <div className=" hidden md:block animate-in fade-in zoom-in bg-white p-4">
-          <div className="flex justify-between  mx-[2rem] lg:mx-[9rem] items-center">
-            <div className="flex flex-row">
-              <img src="/images/logo_desktop1.png" className="inw-[3rem] h-[4rem]" alt="logo" />
-
+        <div className="hidden md:block animate-in fade-in zoom-in bg-white p-4">
+          <div className="flex justify-between lg:mx-[2rem] xl:mx-[9rem] items-center">
+            <div className="flex items-center">
+              <img
+                src="/images/logo_desktop1.png"
+                className="inw-[3rem] h-[4rem]"
+                alt="logo"
+              />
               <p className="font-[850] md:leading-[5.0625rem] text-2xl md:text-[3rem] text-darkBlue">
                 <span className="text-primary">O</span>
                 yela
               </p>
             </div>
             <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
-              <Link
-                href="/"
-                className={`hover:text-primary cursor-pointer items-center gap-2 unique-link font-[500] text-gray`}
-              >
-                Home
-              </Link>
-              <p
-                className={`hover:text-primary cursor-pointer flex items-center gap-2 unique-link font-[500] text-gray`}
-              >
-                About Us
-              </p>
-              <Link href="/user-app"
-                className={`hover:text-primary cursor-pointer flex items-center gap-2 unique-link font-[500] text-gray`}
-              >
-                Our App
-              </Link>
-              <Link href="/pricing"
-                className={`hover:text-primary cursor-pointer flex items-center gap-2 unique-link font-[500] text-gray`}
-              >
-                Pricing
-              </Link>
-              <Link href="/contact"
-                className={`hover:text-primary cursor-pointer flex items-center gap-2 unique-link font-[500] text-gray`}
-              >
-                Contacts
-              </Link>
+              {navLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="hover:text-primary unique-link font-semibold cursor-pointer font-[500] text-gray"
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
             <div className="flex items-center gap-[40px] select-none">
-              <MainButton text="Download now" classes="px-2 text-md shadow-none" />
+              <MainButton
+                text="Download Now"
+                disabled={false}
+                action={() => {
+                  router.push("/user-app");
+                }}
+                classes="shadow-none px-2 text-md"
+              />
             </div>
           </div>
         </div>
@@ -62,82 +63,69 @@ function NavBar() {
 
       {/* MOBILE */}
       <div
-        className={`flex flex-col md:hidden shadow-sm  fixed top-0 w-full z-[999] bg-white animate-in fade-in zoom-in  ${
-          menu ? " bg-transparent" : ""
-        } `}
+        className={`flex flex-col md:hidden fixed top-0 w-full z-[999] bg-transparent`}
       >
         <div className="flex justify-between bg-white pt-4 mx-[10px]">
-          <div className="w-full flex flex-row self-center items-center justify-center">
-            <img src="/images/logo_desktop1.png" className="w-[2rem] h-[3rem]" alt="logo" />
-
+          <div className="flex items-center justify-center w-full">
+            <img
+              src="/images/logo_desktop1.png"
+              className="w-[2rem] h-[3rem]"
+              alt="logo"
+            />
             <p className="font-[850] text-2xl md:text-[2rem] text-darkBlue">
               <span className="text-primary">O</span>
               yela
             </p>
           </div>
-
           <div className="flex items-center gap-[40px]">
             {menu ? (
-              <X
-                className="cursor-pointer animate-in fade-in zoom-in text-black"
-                onClick={toggleMenu}
-              />
+              <X className="cursor-pointer text-black" onClick={toggleMenu} />
             ) : (
               <img
                 src="/svgs/hamburger.svg"
-                alt="logo"
-                className="cursor-pointer animate-in fade-in zoom-in"
+                alt="Menu"
+                className="cursor-pointer"
                 onClick={toggleMenu}
               />
             )}
           </div>
         </div>
-        {menu ? (
-          <div className="h-screen flex select-none animate-in slide-in-from-right">
-            <div onClick={() => {}} className="w-1/2 h-full border flex flex-col gap-8 px-3 py-4 bg-white">
-              <Link
-                href="/"
-                onClick={() => setMenu(false)}
-                className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
-              >
-                Home
-              </Link>
-              <Link
-                href="#"
-                onClick={() => setMenu(false)}
-                className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
-              >
-                About Us
-              </Link>
-              <Link
-                href="/user-app"
-                onClick={() => setMenu(false)}
-                className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
-              >
-                Our App
-              </Link>
-              <Link href="/pricing"
-                onClick={() => setMenu(false)}
-                className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/contact"
-                onClick={() => setMenu(false)}
-                className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
-              >
-                Contacts
-              </Link>
 
-              <MainButton text="Download now" classes="shadow-none" />
-            </div>
-
-            <div className="w-1/2 bg-[#000] opacity-[0.6]" onClick={() => setMenu(!menu)}></div>
-          </div>
-        ) : (
-          <div></div>
+        {/* Dark Overlay for Menu */}
+        {menu && (
+          <div
+            className="fixed inset-0 top-[4rem] left-0 w-full h-full bg-black bg-opacity-50"
+            onClick={toggleMenu}
+          />
         )}
+
+        {/* Slide-In Menu */}
+        <div
+          className={`fixed top-[4rem] left-0 h-screen w-1/2 bg-white border transition-transform transform ${
+            menu ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <div className="flex flex-col gap-8 px-3 py-4">
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMenu(false)}
+                className="hover:text-primary cursor-pointer flex items-center gap-2 font-[500] text-gray"
+              >
+                {label}
+              </Link>
+            ))}
+            <MainButton
+              text="Download Now"
+              disabled={false}
+              action={() => {
+                router.push("/user-app");
+              }}
+              classes="shadow-none"
+            />
+          </div>
+        </div>
       </div>
     </>
   );

@@ -17,7 +17,7 @@ function NewsletterSection() {
         </div>
         <div>
           <p className="mb-[1.44rem] text-[#575757] text-normal w-3/4 text-center font-semibold">
-            Subscribe to Oyela's newsletter for expert tips on emotional wellness, exclusive content from counselors, and special offers. Stay informed and empowered on your wellness journey. Join our community today!
+            Subscribe to Oyela{"'"}s newsletter for expert tips on emotional wellness, exclusive content from counselors, and special offers. Stay informed and empowered on your wellness journey. Join our community today!
           </p>
 
           <Input
