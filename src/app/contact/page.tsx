@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
                     />
                 </svg>
             ),
-            contact: "Oyela@example.com",
+            contact: "info@oyela.net",
         },
         {
             icon: (
@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
                     />
                 </svg>
             ),
-            contact: "Mountain View, California, United State.",
+            contact: "Abuja-FCT, Nigeria.",
         },
     ];
 
