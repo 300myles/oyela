@@ -12,8 +12,10 @@ interface Plan {
 }
 
 const PricingSection: React.FC = () => {
+  const [active, setActive] = useState<'monthly' | 'yearly'>('monthly');
+  const [expandedPlanIndex, setExpandedPlanIndex] = useState<number | null>(null); // State to track expanded plan
   const router = useRouter();
-  const [showAll, setShowAll] = useState(false); // State for toggling feature visibility
+
   const plans: Plan[] = [
     {
       name: "Individual",
@@ -33,7 +35,7 @@ const PricingSection: React.FC = () => {
         "100% Complete Access",
         "Employee or member emotional wellness assessments.",
         "Direct delivery of assessment results to clients.",
-        "counselors (via admin accounts) and clients both receive assessment results for Organisation.",
+        "Counselors (via admin accounts) and clients both receive assessment results for Organisation.",
         "Comprehensive support for emotional health within the organization.",
       ],
     },
@@ -49,6 +51,10 @@ const PricingSection: React.FC = () => {
       ],
     },
   ];
+
+  const toggleShowAll = (index: number) => {
+    setExpandedPlanIndex(prevIndex => (prevIndex === index ? null : index)); // Toggle expansion
+  };
 
   return (
     <section className="pt-[8rem] md:py-14 ">
@@ -66,15 +72,13 @@ const PricingSection: React.FC = () => {
           </div>
         </div>
 
-        {/* <div className="flex items-center justify-center mt-8">
-          <TogglePricing />
-        </div> */}
+        <div className="flex items-center justify-center mt-8">
+          <TogglePricing active={active} setActive={setActive} />
+        </div>
 
         <div className="w-full flex flex-col flex-wrap md:flex-row gap-[1.56rem] justify-around mt-8 md:mt-[2rem]">
           {plans.map((item, idx) => {
-            const displayedFeatures = showAll
-              ? item.features
-              : item.features.slice(0, 3); // Show all or first 3 features
+            const showAll = expandedPlanIndex === idx; // Determine if this plan's features are fully visible
 
             return (
               <div
@@ -94,14 +98,12 @@ const PricingSection: React.FC = () => {
                   </span>
                   <div className="text-gray-800 text-3xl font-semibold">
                     {item.name === "Individual" && (
-                      <>
-                        <p>
-                          $9.99{" "}
-                          <span className="text-gray-500 text-sm">
-                            One-time Payment
-                          </span>
-                        </p>
-                      </>
+                      <p>
+                        $9.99{" "}
+                        <span className="text-gray-500 text-sm">
+                          One-time Payment
+                        </span>
+                      </p>
                     )}
 
                     {item.name === "Organisation" && (
@@ -133,18 +135,21 @@ const PricingSection: React.FC = () => {
 
                     {item.name === "Coach" && (
                       <>
-                        <p className="text-2xl">
-                          $39{" "}
-                          <span className="text-gray-500 text-sm">
-                            Montly Payment
-                          </span>
-                        </p>
-                        <p className="mt-2 text-2xl">
-                          $419{" "}
-                          <span className="text-gray-500 text-sm">
-                            Annual Payment
-                          </span>
-                        </p>
+                        {active === "monthly" ? (
+                          <p className="text-2xl">
+                            $39{" "}
+                            <span className="text-gray-500 text-sm">
+                              Monthly Payment
+                            </span>
+                          </p>
+                        ) : (
+                          <p className="mt-2 text-2xl">
+                            $419{" "}
+                            <span className="text-gray-500 text-sm">
+                              Annual Payment
+                            </span>
+                          </p>
+                        )}
                       </>
                     )}
                   </div>
@@ -164,8 +169,8 @@ const PricingSection: React.FC = () => {
                   <li className="pb-2 text-gray-800 font-medium">
                     <p>Features</p>
                   </li>
-                  {displayedFeatures.map((featureItem, idx) => (
-                    <li key={idx} className="flex items-center gap-5">
+                  {(showAll ? item.features : item.features.slice(0, 3)).map((featureItem, featureIdx) => (
+                    <li key={featureIdx} className="flex items-center gap-5">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="min-h-5 max-h-5 max-5 min-w-5 text-primary"
@@ -187,7 +192,7 @@ const PricingSection: React.FC = () => {
                   <div className="flex justify-center p-4">
                     <button
                       className="p-2 text-sm text-primary hover:underline"
-                      onClick={() => setShowAll((prev) => !prev)}
+                      onClick={() => toggleShowAll(idx)}
                     >
                       {showAll ? "Show Less" : "Show More"}
                     </button>

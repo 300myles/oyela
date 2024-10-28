@@ -1,34 +1,22 @@
-"use client";
+// TogglePricing.tsx
+import React from "react";
 
-import React, { useState } from 'react';
+interface TogglePricingProps {
+  active: 'monthly' | 'yearly';
+  setActive: React.Dispatch<React.SetStateAction<'monthly' | 'yearly'>>;
+}
 
-const TogglePricing: React.FC = () => {
-  const [active, setActive] = useState<'monthly' | 'yearly'>('monthly'); // Type annotation for active state
-
+const TogglePricing: React.FC<TogglePricingProps> = ({ active, setActive }) => {
   return (
-    <div className="relative flex items-center justify-center w-[200px] bg-gray-200 rounded-[20px]">
-      {/* Toggle Background */}
-      <div
-        className={`absolute inset-0 w-1/2 h-full bg-primary rounded-[20px] transition-transform duration-300 ease-in-out ${
-          active === 'monthly' ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      />
-
-      {/* Monthly Button */}
-      <button
-        className={`relative w-1/2 py-2 text-center text-sm font-medium transition-colors ${
-          active === 'monthly' ? 'text-white' : 'text-gray-500'
-        }`}
+    <div>
+      <button 
+        className={`px-4 py-2 ${active === 'monthly' ? 'bg-blue-500' : 'bg-gray-300'}`} 
         onClick={() => setActive('monthly')}
       >
         Monthly
       </button>
-
-      {/* Yearly Button */}
-      <button
-        className={`relative w-1/2 py-2 text-center text-sm font-medium transition-colors ${
-          active === 'yearly' ? 'text-white' : 'text-gray-500'
-        }`}
+      <button 
+        className={`px-4 py-2 ${active === 'yearly' ? 'bg-blue-500' : 'bg-gray-300'}`} 
         onClick={() => setActive('yearly')}
       >
         Yearly

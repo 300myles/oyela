@@ -15,9 +15,9 @@ const AboutPage: React.FC = () => {
         </h1>
         <p className="text-lg text-gray-700 text-center mb-12">
           At Oyela, we believe in empowering individuals to manage their
-          emotions and navigate life{"'"}s challenges with confidence. Our platform
-          connects users with professional counselors and provides AI-driven
-          support tailored to their unique needs.
+          emotions and navigate life{"'"}s challenges with confidence. Our
+          platform connects users with professional counselors and provides
+          AI-driven support tailored to their unique needs.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -57,9 +57,9 @@ const AboutPage: React.FC = () => {
               Flexible Accessibility
             </h2>
             <p className="text-gray-600 text-center">
-              Access our services anytime, anywhere, through your mobile device
-              or desktop, ensuring support is always within reach. Your mental
-              wellness should never be out of touch.
+              Access our services anytime, anywhere, through your mobile device,
+              ensuring support is always within reach. Your mental wellness
+              should never be out of touch.
             </p>
           </div>
 
@@ -78,7 +78,14 @@ const AboutPage: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-          <MainButton text="Get Started" disabled={false} action={() => {router.push("/user-app")}} classes="shadow-none text-md" />
+          <MainButton
+            text="Get Started"
+            disabled={false}
+            action={() => {
+              router.push("/user-app");
+            }}
+            classes="shadow-none text-md"
+          />
         </div>
       </div>
     </section>

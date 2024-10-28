@@ -15,7 +15,7 @@ function NewsletterSection() {
             className="w-[10rem] md:w-full"
           />
         </div>
-        <div>
+        <div className="flex flex-col flex-1 items-center">
           <p className="mb-[1.44rem] text-[#575757] text-normal w-3/4 text-center font-semibold">
             Subscribe to Oyela{"'"}s newsletter for expert tips on emotional wellness, exclusive content from counselors, and special offers. Stay informed and empowered on your wellness journey. Join our community today!
           </p>
@@ -25,8 +25,8 @@ function NewsletterSection() {
             placeholder="Your E-mail here..."
             className="h-[3.8125rem] mt-8 rounded-[3.0625rem] newsletter-box-shadow"
           />
-          <div className="mt-[3.12rem]">
-            <MainButton text="Subscribe Our Newsletter" width="full_width" />
+          <div className="mt-[3.12rem] w-full">
+            <MainButton text="Subscribe To Our Newsletter" width="full_width" />
           </div>
         </div>
       </div>

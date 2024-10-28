@@ -8,7 +8,7 @@ interface NavigationItem {
   path: string;
 }
 
-const Navbar: React.FC = () => {
+const Hero: React.FC = () => {
   const [state, setState] = useState<boolean>(false);
 
   const navigation: NavigationItem[] = [
@@ -67,11 +67,11 @@ const Navbar: React.FC = () => {
             <img src="/images/happy_guy.png" alt="" />
           </div>
         </div>
-        <div className="mt-14 px-4 md:px-8">
+        <div className="mt-4 px-4 md:px-8">
           <p className="text-center text-sm text-gray-700 font-semibold">
-            Trusted by the best companies 577589598{" "}
+            Trusted by the best companies{" "}
           </p>
-          <div className="flex justify-center items-center flex-wrap gap-x-12 gap-y-6 mt-6">
+          {/* <div className="flex justify-center items-center flex-wrap gap-x-12 gap-y-6 mt-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="190"
@@ -85,14 +85,14 @@ const Navbar: React.FC = () => {
                   d="M16.416 25.995h-6.144v-6.144h6.144v6.144ZM10.272 30.721H5.546v-4.726h4.726v4.726ZM5.546 25.995h-3.97v-3.939h3.97v3.939Z"
                   clipRule="evenodd"
                 />
-                {/* Additional SVG paths can be added here */}
+                {/* Additional SVG paths can be added here *}
               </g>
             </svg>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
   );
 };
 
-export default Navbar;
+export default Hero;

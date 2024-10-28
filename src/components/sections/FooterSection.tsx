@@ -28,7 +28,7 @@ function FooterSection() {
       <Separator />
       <div className=" pt-[1rem] pb-[2.56rem]">
         <p className="text-customGray text-center">
-          Copyright @ Oyela. All rights reserved.
+          Copyright @ Oyela 2024. All rights reserved.
         </p>
       </div>
     </section>
