@@ -35,7 +35,7 @@ const getBlogPost = async (id: string): Promise<BlogPost> => {
   const post = posts.find((post) => post.id === parseInt(id));
   if (post) {
     // Generate image if not already present
-    post.image = await generateImage(post.title) || "/images/default.jpg";
+    post.image = await generateImage(post.title)
   }
 
   return post!;

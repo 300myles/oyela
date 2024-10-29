@@ -25,7 +25,7 @@ function NavBar() {
       <div className="md:sticky md:top-0 md:shadow-sm z-20">
         {/* DESKTOP */}
         <div className="hidden md:block animate-in fade-in zoom-in bg-white p-4">
-          <div className="flex justify-between xl:mx-[5rem] items-center">
+          <div className="flex justify-between lg:mx-[4rem] items-center">
             <div onClick={() => router.push("/")} className="flex items-center">
               <img
                 src="/images/logo_desktop1.png"
@@ -37,7 +37,7 @@ function NavBar() {
                 yela
               </p>
             </div>
-            <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
+            <div className="flex gap-[38px] xl:gap-[50px] text-[16px] items-center select-none">
               {navLinks.map(({ href, label }) => {
                 if (href === "/") return;
                 return(
