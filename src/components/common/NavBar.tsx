@@ -25,8 +25,8 @@ function NavBar() {
       <div className="md:sticky md:top-0 md:shadow-sm z-20">
         {/* DESKTOP */}
         <div className="hidden md:block animate-in fade-in zoom-in bg-white p-4">
-          <div className="flex justify-between lg:mx-[2rem] xl:mx-[9rem] items-center">
-            <div className="flex items-center">
+          <div className="flex justify-between xl:mx-[5rem] items-center">
+            <div onClick={() => router.push("/")} className="flex items-center">
               <img
                 src="/images/logo_desktop1.png"
                 className="inw-[3rem] h-[4rem]"
@@ -38,7 +38,9 @@ function NavBar() {
               </p>
             </div>
             <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
-              {navLinks.map(({ href, label }) => (
+              {navLinks.map(({ href, label }) => {
+                if (href === "/") return;
+                return(
                 <Link
                   key={href}
                   href={href}
@@ -46,7 +48,7 @@ function NavBar() {
                 >
                   {label}
                 </Link>
-              ))}
+              )})}
             </div>
             <div className="flex items-center gap-[40px] select-none">
               <MainButton

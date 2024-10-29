@@ -15,8 +15,7 @@ const initialBlogPosts: Omit<BlogPost, "image">[] = [
   {
     id: 1,
     title: "How to Manage Emotions",
-    excerpt:
-      "Discover effective ways to control your emotions and stay positive.",
+    excerpt: "Discover effective ways to control your emotions and stay positive.",
   },
   {
     id: 2,
@@ -34,45 +33,41 @@ const BlogSection: React.FC = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
+    console.log("BlogSection mounted"); // Initial log to confirm the component has mounted
+
     const fetchImages = async () => {
-      const postsWithImages = await Promise.all(
-        initialBlogPosts.map(async (post) => {
-          const image = await generateImage(post.title);
-          return { ...post, image: image || "/images/default-image.jpg" }; // Fallback image if none is generated
-        })
-      );
-      setBlogPosts(postsWithImages);
+      try {
+        console.log("Fetching images for blog posts...");
+        const postsWithImages = await Promise.all(
+          initialBlogPosts.map(async (post) => {
+            const image = await generateImage(post?.title);
+            console.log(`Image for "${post.title}":`, image);
+            return { ...post, image: image || "/images/default-image.jpg" }; // Fallback image if none is generated
+          })
+        );
+        setBlogPosts(postsWithImages);
+        console.log("Updated blog posts:", postsWithImages);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
     };
 
     fetchImages();
-  }, []);
+  }, []); // Removed initialBlogPosts from dependency array
 
   return (
     <section className="bg-white pt-[8rem] md:py-14">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center text-darkBlue mb-8">
-          Our Latest Blogs
-        </h2>
+        <h2 className="text-3xl font-bold text-center text-darkBlue mb-8">Our Latest Blogs</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <div
-              key={post.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-            >
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-48 object-cover"
-              />
+            <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
               <div className="p-4">
-                <h3 className="text-xl font-semibold text-primary mb-2">
-                  {post.title}
-                </h3>
+                <h3 className="text-xl font-semibold text-primary mb-2">{post.title}</h3>
                 <p className="text-gray-600 mb-4">{post.excerpt}</p>
                 <Link href={`/blogs/${post.id}`}>
-                  <span className="text-primary font-semibold hover:underline">
-                    Read More
-                  </span>
+                  <span className="text-primary font-semibold hover:underline">Read More</span>
                 </Link>
               </div>
             </div>

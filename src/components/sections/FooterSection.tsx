@@ -19,9 +19,9 @@ function FooterSection() {
           Illuminating your world...
         </div>
         <div className="flex gap-4">
-          <Link href="#" className="text-lightBlue hover:text-primary text-[1rem]">How it Works</Link>
+          <Link href="/about" className="text-lightBlue hover:text-primary text-[1rem]">How it Works</Link>
           <Link href="/pricing" className="text-lightBlue hover:text-primary text-[1rem]">Pricing</Link>
-          <Link href="#" className="text-lightBlue hover:text-primary text-[1rem]">About</Link>
+          <Link href="/user-app" className="text-lightBlue hover:text-primary text-[1rem]">Our App</Link>
           <Link href="/user-app" className="text-lightBlue hover:text-primary text-[1rem]">Get Started</Link>
         </div>
       </div>
